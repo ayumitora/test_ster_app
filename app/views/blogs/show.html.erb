@@ -5,6 +5,21 @@
   <%= @blog.title %>
 </p>
 
+<h4 class="mb-3">評価：<%= @blog.rate %>点 | <%= @blog.title %></h4>
+ <!--星評価-->
+<div id="star-rate-<%= @blog.id %>"></div>
+  <script>
+    $('#star-rate-<%= @blog.id %>').raty({
+      size: 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+      score: '<%= @blog.rate %>'
+    });
+  </script>
+
 <p>
   <strong>Content:</strong>
   <%= @blog.content %>
