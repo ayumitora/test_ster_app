@@ -63,5 +63,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
-gem 'jquery-rails'
+# gem 'jquery-rails'[yarn add jquery]で入れるのがいいんだって
 gem 'html2slim'
