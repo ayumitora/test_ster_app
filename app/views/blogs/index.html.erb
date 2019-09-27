@@ -19,17 +19,7 @@
         <td><%= blog.content %></td>
         <td><%= blog.rate %>
           <div id="star-rate-<%= blog.id %>"></div>
-          <script>
-          $('#star-rate-<%= blog.id %>').raty({
-            size: 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
-            readOnly: true,
-            score: '<%= blog.rate %>'
-          });
-          </script>
+          <%= render 'display_star_js', blog: blog %>
         </td>
         <td><%= link_to 'Show', blog %></td>
         <td><%= link_to 'Edit', edit_blog_path(blog) %></td>

@@ -1,0 +1,23 @@
+= form_with(model: blog, local: true) do |form|
+  - if blog.errors.any?
+    #error_explanation
+      h2
+        = pluralize(blog.errors.count, "error")
+        |  prohibited this blog from being saved:
+      ul
+        - blog.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :title
+    = form.text_field :title
+  .field
+    = form.label :content
+    = form.text_area :content
+  #star.form-group.row
+    = form.label :rate,'評価 ', class:'col-md-3 col-form-label'
+    = form.hidden_field :rate, id: :review_star
+  script
+    |  $('#star').raty({ size : 36, starOff: '<ruby code="= asset_path('star-off.png')"></ruby>', starOn : '<ruby code="= asset_path('star-on.png')"></ruby>', starHalf: '<ruby code="= asset_path('star-half.png')"></ruby>', scoreName: 'blog[rate]', score: '<ruby code="= @blog.rate"></ruby>', half: true }); 
+  .actions
+    = form.submit
